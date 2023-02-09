@@ -158,4 +158,30 @@ console.log('The new array should be 1, 2, 3:', allPositive(iArray = [1, 2, 3, -
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
+// Challenge: There's a "3 for 2" (or "2+1" if you like) offer on mangoes. For a given quantity and price (per mango), calculate the total cost of the mangoes.
+// https://www.codewars.com/kata/57a77726bb9944d000000b06
 
+function mangoPrice (mangos, price) {
+  let totalPrice = 0
+  let mangoCounter = 0
+  let i = 0
+
+  while (i<mangos) {
+    if ( mangoCounter < 2 ) {
+      mangoCounter++;
+      totalPrice = totalPrice+price;
+    } else {
+      mangoCounter=0;
+    }
+    i++;
+  } 
+  return ('$' + totalPrice)
+}
+
+console.log('The Total price should be $10:', mangoPrice(2,5))
+console.log('The Total price should still be $10:', mangoPrice(3,5))
+console.log('The Total price should be $20:', mangoPrice(5,5))
+console.log('The Total price should still be $20:', mangoPrice(6,5))
+console.log('The total price should be $100:', mangoPrice(30, 5))
+
+// upon completion, I did see some more clever ways to do this involving math.floor and/or better use of proper maths. Ah well.
