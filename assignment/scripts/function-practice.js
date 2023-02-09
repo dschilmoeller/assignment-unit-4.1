@@ -74,15 +74,26 @@ console.log( 'getLast should be Steven:', getLast(names = ['Dave', 'Luke','Nick'
 // I feel like this should work but it is not. Suspect the issue is the return true/false is 'down' or 'in' one level from where it should be. 
 // After running additional tests, it works on an array of names but not on numbers. Is the issue in the function inputs?
 // further testing - it works when the item is the first in the array. 
-function find( value, array ) {
-    for ( number of array ) {
-      if ( number === value ) {
-        return true;
-      } else {
-        return false;
-      }
+// function find( value, array ) {
+//     for ( number of array ) {
+//       if ( number === value ) {
+//         return true;
+//       } else {
+//         return false;
+//       }
+//     }
+// } // end find function 
+
+function find (value, array ) {
+  for ( number of array ) {
+    if (number === value) {
+      return true
     }
-} // end find function 
+  }
+  return false;
+}
+// this seems to work. I'm not certain why the else doesn't work properly; it must be something about the priority each section is getting assigned. Very frustrating.
+
 console.log('function Find should return true', find(3, nums = [1,2,3]));
 console.log('function Find should return false', find(3, nums = [1,2,4]));
 console.log('function find should return true', find('Nick', names = ['Dave', 'Luke','Nick','Jeff','Steven']))
@@ -96,24 +107,55 @@ console.log('function Find should return false', find(3, nums = [1,2,4]));
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
 function isFirstLetter(letter, string) {
-
+  let firstLetter = string.charAt(0);
+  if (firstLetter === letter) {
+    return true;
+  }
+  return false;
 }
 console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') );
 console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
 
 // 9. Function to return the sum of all numbers in an array
-function sumAll( ) {
+function sumAll( integerArray ) {
   let sum = 0
-  // TODO: loop to add items
+  for (let i=0; i < integerArray.length; i++) {
+    sum = sum+integerArray[i]
+  }
   return sum;
 }
+
+console.log('Sum should equal 10:', sumAll(numbers = [1,2,3,4]))
+console.log('Sum should equal 21:', sumAll(numbers = [1,2,3,4,5,6]))
+console.log('Sum should equal 2:', sumAll(numbers = [1, -2, 3]) )
+
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
+function allPositive (inputArray) {
+  let newArray = []
+  for (integers of inputArray) {
+    if (integers > 0) {
+      newArray.push(integers);
+    } 
+  } return newArray
+}
 
+console.log('The new array should be 1, 2, 3:', allPositive(iArray = [1, 2, 3, -1, -2, -3]))
+// other method below from testing - I am consisting putting 'return [desired return] "up" one level from where it should go. 
+// will have to keep an eye on that as functions get more complicated.
 
+// function allPositive (inputArray) {
+//   let newArray = []
+//   for (let i = 0; i < inputArray.length; i++) {
+//     if (inputArray[i] > 0) {
+//       newArray.push(inputArray[i]);
+//     }  
+//   } return newArray
+// }
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
+
