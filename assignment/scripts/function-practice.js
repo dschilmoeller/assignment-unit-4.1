@@ -5,11 +5,13 @@ console.log('***** Function Practice *****')
 // to test it and display the result
 
 // 1. Function to return 'Hello World!'
-function hello() {
+function hello() { // This is called a function signature or definition.
+  // generally it is descriptive of what the function does.                                  
   return 'Hello World!';
 }
 // Call the function to test
 console.log('Test - should say "Hello World!"', hello());
+// "Call the function" - do something that causes the function to run.
 
 
 // 2. Function to return an personalized hello, using the `name` argument.
